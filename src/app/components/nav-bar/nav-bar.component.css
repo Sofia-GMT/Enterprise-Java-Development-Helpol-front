@@ -1,0 +1,19 @@
+.container{
+    max-width: 100%;
+    align-content: center;
+}
+ul{
+    display: flex; 
+    padding: 20px;
+    background-color:lightseagreen;
+    list-style:none;
+    
+}
+
+li a{
+    padding: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 700px;
+}

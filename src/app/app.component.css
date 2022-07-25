@@ -1,0 +1,17 @@
+.intro{
+    padding-right: 20px;
+    padding-top: 50px;
+    text-align: center;
+    font-family:'Courier New', Courier, monospace;
+}
+.title{
+    font-size: 80px;
+    font-weight: 500px;
+}
+.subtitle{
+    font-style: oblique; 
+    padding-top: 40px;
+    font-size: 40px;
+    font-weight: 200;
+    
+}
