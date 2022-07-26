@@ -7,7 +7,13 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { CalculatorPageComponent } from './components/calculator-page/calculator-page.component';
-import { OrderPageComponent } from './components/order-page/order-page.component';
+import { OrderPageComponent } from './components/order/order-page/order-page.component';
+import { SideBarComponent } from './components/order/side-bar/side-bar.component';
+import { RegisterComponent } from './components/order/register/register.component';
+import { LogInComponent } from './components/order/log-in/log-in.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -15,12 +21,19 @@ import { OrderPageComponent } from './components/order-page/order-page.component
     HomePageComponent,
     NavBarComponent,
     CalculatorPageComponent,
-    OrderPageComponent
+    OrderPageComponent,
+    SideBarComponent,
+    RegisterComponent,
+    LogInComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
