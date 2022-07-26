@@ -8,7 +8,7 @@ import { User } from '../models/user.model';
 })
 export class LoginUserService {
 
-  private readonly BASE_URL: string = 'http://localhost:8083/orders';
+  private readonly BASE_URL: string = 'http://localhost:8081/users';
 
   constructor(
     private http: HttpClient

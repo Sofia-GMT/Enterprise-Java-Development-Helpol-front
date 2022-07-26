@@ -1,1 +1,14 @@
-<p>log-in works!</p>
+<p>Please, introduce your name and password</p>
+
+
+<input type="text" placeholder="Name..." [(ngModel)]="nameInput">
+<input type="text" placeholder="Password..." [(ngModel)]="passwordInput">
+
+
+<div *ngIf="correct()">
+    <p>This is a secret message</p>
+</div>
+
+<ul *ngFor="let user of userList">
+    <li> {{user.name}} </li>
+</ul>

@@ -11,19 +11,30 @@ export class LogInComponent implements OnInit {
 
   userList: User[]
 
+  nameInput: string;
+
+  passwordInput: string;
+
   constructor(
     private loginUserService: LoginUserService
   ) { 
-    this.userList = []
+    this.userList = [new User("demo", 0, "demopassword", "demo")];
+    this.nameInput="";
+    this.passwordInput="";
   }
 
   ngOnInit(): void {
     this.loginUserService.getAllUser().subscribe(
       dataResult => { 
-        this.userList=dataResult
+        this.userList=dataResult;
         console.log(this.userList);
       }
     );
+  }
+
+  correctAll(){
+    for(let i = 0 ; i < this.userList.length ; i++){
+      if()
   }
   
 
