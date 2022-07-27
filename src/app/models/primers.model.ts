@@ -1,5 +1,6 @@
 export class Primers {
 
+
     constructor(
         private _name: string,
         private _forwardSequence: string,
@@ -23,6 +24,14 @@ export class Primers {
     }
     public set name(value: string) {
         this._name = value;
+    }
+
+    public toJson(): any {
+        return {
+            name: this._name,
+            forwardSequence: this._forwardSequence,
+            reverseSequence: this._reverseSequence
+        };
     }
 
 }

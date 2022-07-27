@@ -35,12 +35,14 @@ export class LogInComponent implements OnInit {
     );
   }
 
-  correctUserAndPassword() {
+  correctUserPasswordAndStatus() {
     for(let i = 0 ; i < this.userList.length ; i++){
       
       if(this.userList[i].name == this.nameInput){
         if(this.userList[i].password == this.passwordInput){
-          this.access=true;
+          if(this.userList[i].status === "VALIDATED"){
+            this.access=true;
+          }
         }
       }
     }
