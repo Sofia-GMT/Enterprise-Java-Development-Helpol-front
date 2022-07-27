@@ -5,7 +5,7 @@
 
 
 <input type="text" placeholder="Name..." [(ngModel)]="nameInput">
-<input type="text" placeholder="Password..." [(ngModel)]="passwordInput">
+<input type="password" placeholder="Password..." [(ngModel)]="passwordInput">
 <button type="submit" (click)="correctUserPasswordAndStatus()">Submit</button>
 
 <ul *ngFor="let user from userList">
@@ -21,7 +21,7 @@
         </li>
         
     <h2>Order primers from the database</h2>
-    <app-primers-from-database></app-primers-from-database>
+    <app-primers-from-database [userId]="userId"></app-primers-from-database>
 
 </div>
 

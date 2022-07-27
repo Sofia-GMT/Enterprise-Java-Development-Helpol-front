@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Order } from 'src/app/models/order.model';
 import { Primers } from 'src/app/models/primers.model';
-import { CrudService } from 'src/app/services/crud.service';
 import { PrimersService } from 'src/app/services/primers.service';
 
 @Component({
@@ -19,12 +18,12 @@ export class PrimersFromDatabaseComponent implements OnInit {
   primersIdInput: FormControl;
   concentrationInput: FormControl;
 
+  @Input()
   userId: number;
 
   
   
   constructor(
-    private crudService: CrudService,
     private primerService: PrimersService
 
   ) {
@@ -55,6 +54,7 @@ export class PrimersFromDatabaseComponent implements OnInit {
 
   onSubmit(){
     const order: Order = this.registerForm.value;
+    order.userId = this.userId;
     console.log(order)
   }
 

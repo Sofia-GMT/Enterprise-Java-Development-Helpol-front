@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { LoginUserService } from 'src/app/services/login-user.service';
 
@@ -9,7 +9,10 @@ import { LoginUserService } from 'src/app/services/login-user.service';
 })
 export class LogInComponent implements OnInit {
 
-  userList: User[]
+  userList: User[];
+
+  
+  userId: number;
 
   nameInput: string;
 
@@ -20,10 +23,11 @@ export class LogInComponent implements OnInit {
   constructor(
     private loginUserService: LoginUserService
   ) { 
-    this.userList = [new User("demo", 0, "demopassword", "demo")];
+    this.userList = [new User("demo", 0, "demopassword", "demo", 0)];
     this.nameInput="";
     this.passwordInput="";
     this.access = false;
+    this.userId=0;
   }
 
   ngOnInit(): void {
@@ -42,6 +46,7 @@ export class LogInComponent implements OnInit {
         if(this.userList[i].password == this.passwordInput){
           if(this.userList[i].status === "VALIDATED"){
             this.access=true;
+            this.userId=this.userList[i].id;
           }
         }
       }

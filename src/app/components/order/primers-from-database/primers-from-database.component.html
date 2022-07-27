@@ -9,7 +9,7 @@
 
         
         <div>
-            <select formControlName="primersId" *ngFor="let primers from primersList">
+            <select formControlName="primersId" *ngFor="let primers of primersList">
                 <option value="" invalid>Please select a gene from the list</option>
                 <option value={{primers.id}}> {{primers.name}}</option>
             </select> 
@@ -24,8 +24,7 @@
             </select> 
         </div>
 
-         
-
+        
 
 
         <div>
