@@ -15,12 +15,15 @@ export class LogInComponent implements OnInit {
 
   passwordInput: string;
 
+  access: Boolean;
+
   constructor(
     private loginUserService: LoginUserService
   ) { 
     this.userList = [new User("demo", 0, "demopassword", "demo")];
     this.nameInput="";
     this.passwordInput="";
+    this.access = false;
   }
 
   ngOnInit(): void {
@@ -32,10 +35,28 @@ export class LogInComponent implements OnInit {
     );
   }
 
-  correctAll(){
+  correctUserAndPassword() {
     for(let i = 0 ; i < this.userList.length ; i++){
-      if()
+      
+      if(this.userList[i].name == this.nameInput){
+        if(this.userList[i].password == this.passwordInput){
+          this.access=true;
+        }
+      }
+    }
   }
-  
+
+  checkAcces(): Boolean {
+    return this.access === true;
+  }
+
+  logOut() {
+    this.access=false;
+  }
+
+
+
+
+
 
 }

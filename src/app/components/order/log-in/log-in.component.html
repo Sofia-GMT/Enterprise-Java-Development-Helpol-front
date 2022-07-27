@@ -3,12 +3,21 @@
 
 <input type="text" placeholder="Name..." [(ngModel)]="nameInput">
 <input type="text" placeholder="Password..." [(ngModel)]="passwordInput">
+<button type="submit" (ngSubmit)="correctUserAndPassword()">Submit</button>
 
 
-<div *ngIf="correct()">
-    <p>This is a secret message</p>
+<div *ngIf="checkAcces()">
+    <p>Correct log in</p>
+
+    <ul>
+        <li>
+            <a routerLink="/primersdatabase">Order primers from the database</a>
+        </li>
+        <li>
+            <a routerLink="/newprimers" >Design your own primers</a>
+        </li>
+        
+    </ul>
+
 </div>
 
-<ul *ngFor="let user of userList">
-    <li> {{user.name}} </li>
-</ul>
