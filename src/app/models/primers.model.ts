@@ -1,10 +1,12 @@
 export class Primers {
 
 
+
     constructor(
         private _name: string,
         private _forwardSequence: string,
-        private _reverseSequence: string
+        private _reverseSequence: string,
+        private _id: number
     ){}
 
     public get reverseSequence(): string {
@@ -24,6 +26,13 @@ export class Primers {
     }
     public set name(value: string) {
         this._name = value;
+    }
+
+    public get id(): number {
+        return this._id;
+    }
+    public set id(value: number) {
+        this._id = value;
     }
 
 

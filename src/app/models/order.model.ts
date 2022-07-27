@@ -1,8 +1,10 @@
 export class Order {
 
+
     constructor(
         private _userId: number,
-        private _primersId: string
+        private _primersId: string,
+        private _concentration: number
 
     ) { }
 
@@ -19,6 +21,11 @@ export class Order {
     public set userId(value: number) {
         this._userId = value;
     }
-
+    public get concentration(): number {
+        return this._concentration;
+    }
+    public set concentration(value: number) {
+        this._concentration = value;
+    }
 
 }

@@ -22,6 +22,8 @@ export class PrimersService {
     return this.http.post<Primers>(`${this.BASE_URL}`, JSON.parse(JSON.stringify(primers)))
   }
 
-  getPrimersByIdd
+  getPrimersById(id: Number): Observable<Primers[]>{
+      return this.http.get<Primers[]>(`${this.BASE_URL}/${id}`)
+  }
   
 }

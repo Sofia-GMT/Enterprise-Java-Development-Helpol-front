@@ -8,21 +8,23 @@
     <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
 
         
-            <input type="text" matInput placeholder="Name..." formControlName="name">
-            <p class="error-msg" *ngIf="nameInput.hasError('required') && (nameInput.touched || nameInput.dirty)">
-                Name is <strong>required</strong></p>
-            <p class="error-msg" *ngIf="nameInput.hasError('noDigits') && (nameInput.touched || nameInput.dirty)">
-                Name can't contains digits</p>
-        
         <div>
-            <input type="forwardSequence" placeholder="Forward sequence..." formControlName="forwardSequence">
-            <p class="error-msg" *ngIf="forwardSequenceInput.invalid && (forwardSequenceInput.touched || forwardSequenceInput.dirty)">It is mandatory to indicate a forward sequence</p>
+            <select formControlName="primersId" *ngFor="let primers from primersList">
+                <option value="" invalid>Please select a gene from the list</option>
+                <option value={{primers.id}}> {{primers.name}}</option>
+            </select> 
         </div>
 
         <div>
-            <input type="reverseSequence" placeholder="Reverse sequence..." formControlName="reverseSequence">
-            <p class="error-msg" *ngIf="reverseSequenceInput.invalid && (reverseSequenceInput.touched || reverseSequenceInput.dirty)">It is mandatory to indicate a reverse sequence</p>
+            <select formControlName="concentration">
+                <option> Optionally, select a concentration</option>
+                <option value=25> 25 nmol </option>
+                <option value=100> 100 nmol </option>
+                <option value=250> 250 nmol </option>
+            </select> 
         </div>
+
+         
 
 
 
