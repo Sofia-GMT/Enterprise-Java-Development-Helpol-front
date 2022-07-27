@@ -26,12 +26,5 @@ export class Primers {
         this._name = value;
     }
 
-    public toJson(): any {
-        return {
-            name: this._name,
-            forwardSequence: this._forwardSequence,
-            reverseSequence: this._reverseSequence
-        };
-    }
 
 }

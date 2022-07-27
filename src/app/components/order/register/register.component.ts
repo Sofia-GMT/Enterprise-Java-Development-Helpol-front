@@ -42,7 +42,6 @@ export class RegisterComponent implements OnInit {
     let user: User = this.registerForm.value;
     user.status = "PENDING";
     this.userService.saveNewUser(user).subscribe();
-    //console.log(JSON.parse(JSON.stringify(user)))
   }
 
 }

@@ -19,6 +19,9 @@ export class PrimersService {
   }
 
   saveNewPair(primers: Primers): Observable<Primers>{
-    return this.http.post<Primers>(`${this.BASE_URL}`, primers.toJson())
+    return this.http.post<Primers>(`${this.BASE_URL}`, JSON.parse(JSON.stringify(primers)))
   }
+
+  getPrimersByIdd
+  
 }

@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrimersFromDatabaseComponent implements OnInit {
 
+  registerForm: FormGroup; 
+  nameInput: FormControl;
+  forwardSequenceInput: FormControl;
+  reverseSequenceInput: FormControl;
+
+  
+  
   constructor() { }
 
   ngOnInit(): void {
