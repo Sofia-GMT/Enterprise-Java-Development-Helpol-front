@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/models/user.model';
+import { LoginUserService } from 'src/app/services/login-user.service';
 import { CustomValidator } from 'src/app/utils/custom-validator';
 
 @Component({
@@ -17,7 +18,9 @@ export class RegisterComponent implements OnInit {
   passwordConfirmationInput: FormControl;
   
   
-  constructor() {
+  constructor(
+    private userService: LoginUserService
+  ) {
     this.nameInput = new FormControl('', [Validators.required, CustomValidator.noDigits]);
     this.idInstitutionInput = new FormControl('', [Validators.required]);
     this.passwordInput = new FormControl('', [Validators.required, CustomValidator.minPasswordLength(6)]);
@@ -36,9 +39,10 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('Form submitted');
-    const user: User = this.registerForm.value;
-    console.log(user);
+    let user: User = this.registerForm.value;
+    user.status = "PENDING";
+    this.userService.saveNewUser(user).subscribe();
+    //console.log(JSON.parse(JSON.stringify(user)))
   }
 
 }

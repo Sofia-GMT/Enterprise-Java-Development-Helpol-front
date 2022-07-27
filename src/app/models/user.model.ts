@@ -32,6 +32,11 @@ export class User {
         this._name = value;
     }
 
-
-    
+    public toJson(): any {
+        return {
+            "name": this._name,
+            "idInstitution": this._idInstitution,
+            "password": this._password
+        }
+    }
 }

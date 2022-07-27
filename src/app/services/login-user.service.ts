@@ -18,4 +18,8 @@ export class LoginUserService {
     return this.http.get<User[]>(`${this.BASE_URL}`)
   }
 
+  saveNewUser(user: User): Observable<User>{
+    return this.http.post<User>(`${this.BASE_URL}`, JSON.parse(JSON.stringify(user)))
+  }
+
 }

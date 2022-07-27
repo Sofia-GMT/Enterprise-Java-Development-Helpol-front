@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Primers } from 'src/app/models/primers.model';
+import { PrimersService } from 'src/app/services/primers.service';
 
 @Component({
   selector: 'app-design-primers',
@@ -16,7 +17,9 @@ export class DesignPrimersComponent implements OnInit {
   reverseSequenceInput: FormControl;
 
   
-  constructor() {
+  constructor(
+    private primersService: PrimersService
+  ) {
     this.nameInput = new FormControl('', Validators.required);
     this.forwardSequenceInput = new FormControl('', Validators.required);
     this.reverseSequenceInput = new FormControl('', Validators.required);
@@ -33,9 +36,8 @@ export class DesignPrimersComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('Form submitted');
-    const primersOrder: Primers = this.registerForm.value;
-    console.log(primersOrder);
+    const primers: Primers = this.registerForm.value;
+    this.primersService.saveNewPair(primers).subscribe();
   }
 
 }
