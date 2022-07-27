@@ -8,23 +8,22 @@
     <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
 
         
-        <div>
-            <select formControlName="primersId" *ngFor="let primers of primersList">
-                <option value="" invalid>Please select a gene from the list</option>
-                <option value={{primers.id}}> {{primers.name}}</option>
+        <div >
+            <p> Please select a sequence</p>
+            <select formControlName="primersId">
+                <option *ngFor="let primers of primersList" value={{primers.id}}> {{primers.name}}</option>
             </select> 
         </div>
 
         <div>
+            <p> Optionally, select a concentration</p>
+            <p> The default concentration is 25 nm</p>
             <select formControlName="concentration">
-                <option> Optionally, select a concentration</option>
-                <option value=25> 25 nmol </option>
+                <option value=25 > 25 nmol </option>
                 <option value=100> 100 nmol </option>
                 <option value=250> 250 nmol </option>
             </select> 
         </div>
-
-        
 
 
         <div>
