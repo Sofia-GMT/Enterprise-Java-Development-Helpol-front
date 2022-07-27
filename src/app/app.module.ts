@@ -13,7 +13,9 @@ import { RegisterComponent } from './components/order/register/register.componen
 import { LogInComponent } from './components/order/log-in/log-in.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { PrimersFromDatabaseComponent } from './components/order/primers-from-database/primers-from-database.component';
+import { DesignPrimersComponent } from './components/order/design-primers/design-primers.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { HttpClientModule } from '@angular/common/http'
     OrderPageComponent,
     SideBarComponent,
     RegisterComponent,
-    LogInComponent
+    LogInComponent,
+    PrimersFromDatabaseComponent,
+    DesignPrimersComponent
   ],
   imports: [
     BrowserModule,

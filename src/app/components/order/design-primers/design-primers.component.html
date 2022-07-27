@@ -1,0 +1,35 @@
+<p>design-primers works!</p>
+
+<div class="container">
+
+    <h1>Add a new pair of primers</h1>
+
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+
+        
+            <input type="text" matInput placeholder="Name..." formControlName="name">
+            <p class="error-msg" *ngIf="nameInput.hasError('required') && (nameInput.touched || nameInput.dirty)">
+                Name is <strong>required</strong></p>
+            <p class="error-msg" *ngIf="nameInput.hasError('noDigits') && (nameInput.touched || nameInput.dirty)">
+                Name can't contains digits</p>
+        
+        <div>
+            <input type="forwardSequence" placeholder="Forward sequence..." formControlName="forwardSequence">
+            <p class="error-msg" *ngIf="forwardSequenceInput.invalid && (forwardSequenceInput.touched || forwardSequenceInput.dirty)">It is mandatory to indicate a forward sequence</p>
+        </div>
+
+        <div>
+            <input type="reverseSequence" placeholder="Reverse sequence..." formControlName="reverseSequence">
+            <p class="error-msg" *ngIf="reverseSequenceInput.invalid && (reverseSequenceInput.touched || reverseSequenceInput.dirty)">It is mandatory to indicate a reverse sequence</p>
+        </div>
+
+
+
+        <div>
+            <button type="submit" mat-raised-button color="primary" [disabled]="registerForm.invalid">Submit</button>
+        </div>
+
+    </form>
+
+</div>
