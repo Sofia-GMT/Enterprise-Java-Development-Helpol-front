@@ -57,8 +57,8 @@ export class PrimersFromDatabaseComponent implements OnInit {
   onSubmit(){
     const order: Order = this.registerForm.value;
     order.userId = this.userId;
-    console.log(order)
-    this.crudService.createOrder(this.userId, order).subscribe()
+    console.log(order);
+    this.crudService.createOrder(this.userId, order).subscribe();
   }
 
 

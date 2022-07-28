@@ -1,1 +1,21 @@
 <p>calculator-page works!</p>
+
+
+
+<input type="text" placeholder="Introduce your sequence" [(ngModel)]="sequence">
+
+<button (click)="calculateCG()" [disabled]="!validSequence()">Calculate CG% </button>
+
+
+<button (click)="calculateTemperature()" [disabled]="!validSequence()"> Calculate annealing temperature</button>
+
+
+
+<p *ngIf="!(percentaje === 0)"> Percentaje of citosines and guanines = {{percentaje}}</p>
+
+<p *ngIf="!(temperature === 0)"> Annealing temperature = {{temperature}} ºC </p>
+
+
+<div *ngIf="!validSequence()">
+    <p>Warning: G, C, T and A are the only valid nucleotides</p>
+</div>
