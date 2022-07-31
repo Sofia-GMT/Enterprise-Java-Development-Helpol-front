@@ -6,7 +6,7 @@ export class CustomValidator {
         return (control: AbstractControl<any, any>): ValidationErrors | null => {
             if (control.value.length < min) {
                 return {
-                    passwordLength: true
+                    minPasswordLength: true
                 };
             }
             

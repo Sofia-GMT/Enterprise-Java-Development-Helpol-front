@@ -1,21 +1,22 @@
-<p>calculator-page works!</p>
+
+<mat-form-field appearance="fill">
+    <mat-label>Introduce your sequence</mat-label>
+    <input matInput [(ngModel)]="sequence">
+</mat-form-field>
+
+
+<button mat-raised-button (click)="calculateCG()" [disabled]="!validSequence()">Calculate CG% </button>
+    
+
+<button mat-raised-button (click)="calculateTemperature()" [disabled]="!validSequence()"> Calculate annealing temperature</button>
 
 
 
-<input type="text" placeholder="Introduce your sequence" [(ngModel)]="sequence">
+<mat-card *ngIf="!(percentaje === 0)"> Percentaje of cytosines and guanines = {{percentaje}}</mat-card> 
 
-<button (click)="calculateCG()" [disabled]="!validSequence()">Calculate CG% </button>
-
-
-<button (click)="calculateTemperature()" [disabled]="!validSequence()"> Calculate annealing temperature</button>
-
-
-
-<p *ngIf="!(percentaje === 0)"> Percentaje of citosines and guanines = {{percentaje}}</p>
-
-<p *ngIf="!(temperature === 0)"> Annealing temperature = {{temperature}} ºC </p>
+<mat-card *ngIf="!(temperature === 0)"> Annealing temperature = {{temperature}} ºC </mat-card> 
 
 
 <div *ngIf="!validSequence()">
-    <p>Warning: G, C, T and A are the only valid nucleotides</p>
+    <mat-card> Warning: G, C, T and A are the only valid nucleotides</mat-card>
 </div>

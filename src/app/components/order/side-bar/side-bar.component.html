@@ -1,11 +1,28 @@
-<div class="container">
-    <ul>
-        <li>
-            <a routerLink="/register">Register</a>
-        </li>
-        <li>
-            <a routerLink="/login" >Log in</a>
-        </li>
-    </ul>
-</div>
+<mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            Register
+        </mat-panel-title>
+        <mat-panel-description>
+          Register a new user
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+        <app-register></app-register>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+              Login
+          </mat-panel-title>
+          <mat-panel-description>
+            For registered users
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+          <app-log-in></app-log-in>
+      </mat-expansion-panel>
+</mat-accordion>
+
+  
 

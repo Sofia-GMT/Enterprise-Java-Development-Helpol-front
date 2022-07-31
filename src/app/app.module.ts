@@ -16,6 +16,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { PrimersFromDatabaseComponent } from './components/order/primers-from-database/primers-from-database.component';
 import { DesignPrimersComponent } from './components/order/design-primers/design-primers.component'
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatCardModule} from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +47,16 @@ import { DesignPrimersComponent } from './components/order/design-primers/design
     FormsModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatGridListModule,
+    MatTabsModule,
+    MatSidenavModule,
+    MatCardModule, 
+    MatInputModule,
+    MatButtonModule,
+    MatExpansionModule,
+    MatRadioModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

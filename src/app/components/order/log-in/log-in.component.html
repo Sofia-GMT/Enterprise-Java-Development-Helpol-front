@@ -3,24 +3,31 @@
     validate your profile
 </p>
 
+<form (ngSubmit)="correctUserPasswordAndStatus()"> 
 
-<input type="text" placeholder="Name..." [(ngModel)]="nameInput">
-<input type="password" placeholder="Password..." [(ngModel)]="passwordInput">
-<button type="submit" (click)="correctUserPasswordAndStatus()">Submit</button>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="nameInput" name="name">
+    </mat-form-field>
 
-<ul *ngFor="let user from userList">
-    <li> {{user}}</li>
-</ul>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput [(ngModel)]="passwordInput" name="password">
+    </mat-form-field>
 
+    <button type="submit" mat-raised-button color="primary"
+    >Submit</button>
+
+</form>
 
 <div *ngIf="checkAcces()">
     <p>Correct log in</p>
 
-        <li>
-            <a routerLink="/newprimers" >Design your own primers</a>
-        </li>
         
-    <h2>Order primers from the database</h2>
+    <a routerLink="/newprimers" >Design your own primers</a>
+        
+        
+    
     <app-primers-from-database [userId]="userId"></app-primers-from-database>
 
 </div>

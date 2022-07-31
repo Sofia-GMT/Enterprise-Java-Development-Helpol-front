@@ -1,28 +1,32 @@
-<p>primers-from-database works!</p>
+
 
 <div class="container">
 
-    <h1>Add a new pair of primers</h1>
-
+    <h2>Order primers from the database</h2>
 
     <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
 
+    <mat-form-field appearance="fill" >
+            <mat-label>Select a sequence</mat-label>
+            <mat-select formControlName="primersId">
+                <mat-option *ngFor="let primers of primersList" value={{primers.id}}> {{primers.name}}</mat-option>
+            </mat-select>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill">
+        <mat-label>Select a concentration </mat-label>
+            
         
-        <div >
-            <p> Please select a sequence</p>
-            <select formControlName="primersId">
-                <option *ngFor="let primers of primersList" value={{primers.id}}> {{primers.name}}</option>
-            </select> 
-        </div>
+        <mat-select formControlName="concentration">
+            <mat-option value=25 > 25 nmol </mat-option>
+            <mat-option value=100> 100 nmol </mat-option>
+            <mat-option value=250> 250 nmol </mat-option>
+        </mat-select>
+        </mat-form-field>
 
         <div>
-            <p> Optionally, select a concentration</p>
             <p> The default concentration is 25 nm</p>
-            <select formControlName="concentration">
-                <option value=25 > 25 nmol </option>
-                <option value=100> 100 nmol </option>
-                <option value=250> 250 nmol </option>
-            </select> 
         </div>
 
 

@@ -1,38 +1,52 @@
 <div class="container">
 
-    <h1>Register a new user</h1>
-
 
     <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
 
-        
-            <input type="text" matInput placeholder="Name..." formControlName="name">
-            <p class="error-msg" *ngIf="nameInput.hasError('required') && (nameInput.touched || nameInput.dirty)">
-                Name is <strong>required</strong></p>
-            <p class="error-msg" *ngIf="nameInput.hasError('noDigits') && (nameInput.touched || nameInput.dirty)">
-                Name can't contains digits</p>
-        
-
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Name</mat-label>
+              <input type="text" matInput formControlName="name" placeholder="Name...">
+              <mat-error *ngIf="nameInput.hasError('required') && !nameInput.hasError('required')">
+                Name is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="nameInput.hasError('noDigits') && (nameInput.touched || nameInput.dirty)">
+                Name can't contains digits
+              </mat-error>
+            </mat-form-field>
+          
         <div>
-            <select formControlName="idInstitution">
-                <option value="" invalid>Please select an institution</option>
-                <option value=001> Standford University </option>
-                <option value=005> Harvard University </option>
-                <option value=006> Massachusetts Institute of Technology </option>
-                <option value=007> Princeton University </option>
-                <option value=008> Columbia University </option>
-            </select> 
+            
+            <mat-form-field appearance="fill"  ngDefaultControl>
+                    <mat-label>Select institution</mat-label>
+                    <mat-select formControlName="idInstitution" >
+                        <mat-option value=001> Standford University </mat-option>
+                        <mat-option value=005> Harvard University </mat-option>
+                        <mat-option value=006> Massachusetts Institute of Technology </mat-option>
+                        <mat-option value=007> Princeton University </mat-option>
+                        <mat-option value=008> Columbia University </mat-option>
+                </mat-select>
+                <mat-error *ngIf="idInstitutionInput.invalid && (idInstitutionInput.touched || idInstitutionInput.dirty)">
+                    The institution is required </mat-error>
+            </mat-form-field>
+            
         </div>
 
-        <div>
-            <input type="password" placeholder="Password..." formControlName="password">
-            <p class="error-msg" *ngIf="passwordInput.invalid && (passwordInput.touched || passwordInput.dirty)">Password should be at least 6 char long</p>
-        </div>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="password" placeholder="Password...">
+            <mat-error *ngIf="passwordInput.hasError('required') && (passwordInput.touched || passwordInput.dirty)">
+                Password is required </mat-error>
+            <mat-error *ngIf="passwordInput.hasError('minPasswordLength') && (passwordInput.touched || passwordInput.dirty)">
+                Password must have at least six characters </mat-error>
+        </mat-form-field>
 
-        <div>
-            <input type="password" placeholder="Password confirmation..." formControlName="passwordConfirmation">
-            <p class="error-msg" *ngIf="registerForm.hasError('passwordMatch') && passwordInput.valid && passwordConfirmationInput.touched">Passwords should match</p>
-        </div>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Password confirmation</mat-label>
+            <input type="password" matInput formControlName="passwordConfirmation" placeholder="Password confirmation...">
+            <mat-error *ngIf="registerForm.hasError('passwordMatch') && passwordInput.valid && passwordConfirmationInput.touched">
+                Passwords should match
+            </mat-error>
+        </mat-form-field>
 
 
         <div>

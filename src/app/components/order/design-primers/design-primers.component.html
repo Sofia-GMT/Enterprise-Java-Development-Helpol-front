@@ -1,4 +1,3 @@
-<p>design-primers works!</p>
 
 <div class="container">
 
@@ -7,22 +6,30 @@
 
     <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
 
-        
-            <input type="text" matInput placeholder="Name..." formControlName="name">
-            <p class="error-msg" *ngIf="nameInput.hasError('required') && (nameInput.touched || nameInput.dirty)">
-                Name is <strong>required</strong></p>
-            <p class="error-msg" *ngIf="nameInput.hasError('noDigits') && (nameInput.touched || nameInput.dirty)">
-                Name can't contains digits</p>
-        
-        <div>
-            <input type="forwardSequence" placeholder="Forward sequence..." formControlName="forwardSequence">
-            <p class="error-msg" *ngIf="forwardSequenceInput.invalid && (forwardSequenceInput.touched || forwardSequenceInput.dirty)">It is mandatory to indicate a forward sequence</p>
-        </div>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Name</mat-label>
+            <input type="text" matInput formControlName="name" placeholder="Name...">
+            <mat-error *ngIf="nameInput.hasError('required') && !nameInput.hasError('required')">
+              Name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
 
-        <div>
-            <input type="reverseSequence" placeholder="Reverse sequence..." formControlName="reverseSequence">
-            <p class="error-msg" *ngIf="reverseSequenceInput.invalid && (reverseSequenceInput.touched || reverseSequenceInput.dirty)">It is mandatory to indicate a reverse sequence</p>
-        </div>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Forward Sequence</mat-label>
+            <input type="text" matInput formControlName="forwardSequence" placeholder="Forward sequence...">
+            <mat-error *ngIf="forwardSequenceInput.hasError('required') && !forwardSequenceInput.hasError('required')">
+                It is mandatory to indicate a forward sequence
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Reverse sequence</mat-label>
+            <input type="text" matInput formControlName="reverseSequence" placeholder="Reverse sequence...">
+            <mat-error *ngIf="reverseSequenceInput.hasError('required') && !reverseSequenceInput.hasError('required')">
+                It is mandatory to indicate a reverse sequence
+            </mat-error>
+        </mat-form-field>
 
 
 

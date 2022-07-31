@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
     private userService: LoginUserService
   ) {
     this.nameInput = new FormControl('', [Validators.required, CustomValidator.noDigits]);
-    this.idInstitutionInput = new FormControl('', [Validators.required]);
+    this.idInstitutionInput = new FormControl('', Validators.required);
     this.passwordInput = new FormControl('', [Validators.required, CustomValidator.minPasswordLength(6)]);
     this.passwordConfirmationInput = new FormControl('');
 
