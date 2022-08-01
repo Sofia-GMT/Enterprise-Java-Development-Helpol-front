@@ -17,13 +17,13 @@
         <div>
             
             <mat-form-field appearance="fill"  ngDefaultControl>
-                    <mat-label>Select institution</mat-label>
-                    <mat-select formControlName="idInstitution" >
-                        <mat-option value=001> Standford University </mat-option>
-                        <mat-option value=005> Harvard University </mat-option>
-                        <mat-option value=006> Massachusetts Institute of Technology </mat-option>
-                        <mat-option value=007> Princeton University </mat-option>
-                        <mat-option value=008> Columbia University </mat-option>
+                <mat-label>Select institution</mat-label>
+                <mat-select formControlName="idInstitution" >
+                    <mat-option value=001> Standford University </mat-option>
+                    <mat-option value=005> Harvard University </mat-option>
+                    <mat-option value=006> Massachusetts Institute of Technology </mat-option>
+                    <mat-option value=007> Princeton University </mat-option>
+                    <mat-option value=008> Columbia University </mat-option>
                 </mat-select>
                 <mat-error *ngIf="idInstitutionInput.invalid && (idInstitutionInput.touched || idInstitutionInput.dirty)">
                     The institution is required </mat-error>
